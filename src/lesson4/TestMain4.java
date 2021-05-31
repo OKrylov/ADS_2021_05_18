@@ -8,7 +8,8 @@ public class TestMain4 {
 
     public static void main(String[] args) {
 //        testLinkedList();
-        testForEach();
+//        testForEach();
+        testMyLinkedListIterator();
     }
 
     private static void testLinkedList() {
@@ -19,6 +20,7 @@ public class TestMain4 {
         linkedList.insertFirst(3);
         linkedList.insertFirst(4);
         linkedList.insertLast(5);
+
 //
         linkedList.display();
 //
@@ -85,6 +87,25 @@ public class TestMain4 {
         linkedList.display();
 
         for(Integer value: linkedList) {
+            System.out.println(value);
+        }
+    }
+    public static void testMyLinkedListIterator() {
+        TwoSideLinkedList<Integer> linkedList = new TwoSideLinkedListImpl<>();
+        linkedList.insertFirst(1);
+        linkedList.insertFirst(2);
+        linkedList.insertFirst(3);
+        linkedList.insertFirst(4);
+        linkedList.insertLast(5);
+        System.out.println("testMyLinkedListIterator");
+        System.out.println("ForEach");
+        for (Integer item: linkedList) {
+            System.out.println(item);
+        }
+        System.out.println("Iterator");
+        Iterator<Integer> iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            Integer value = iterator.next();
             System.out.println(value);
         }
     }
