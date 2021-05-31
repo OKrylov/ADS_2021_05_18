@@ -91,22 +91,39 @@ public class TestMain4 {
         }
     }
     public static void testMyLinkedListIterator() {
+        System.out.println("testMyLinkedListIterator");
         TwoSideLinkedList<Integer> linkedList = new TwoSideLinkedListImpl<>();
+        Iterator<Integer> iterator = linkedList.iterator();
+        try {
+            iterator.next();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         linkedList.insertFirst(1);
         linkedList.insertFirst(2);
         linkedList.insertFirst(3);
         linkedList.insertFirst(4);
         linkedList.insertLast(5);
-        System.out.println("testMyLinkedListIterator");
+
         System.out.println("ForEach");
         for (Integer item: linkedList) {
             System.out.println(item);
         }
+        System.out.println("size=" + linkedList.size());
         System.out.println("Iterator");
-        Iterator<Integer> iterator = linkedList.iterator();
+        iterator = linkedList.iterator();
+        iterator.remove();
+        while (iterator.hasNext()) {
+            Integer value = iterator.next();
+            if (value == 1 || value == 4 || value == 2){
+                iterator.remove();
+            }
+        }
+        iterator = linkedList.iterator();
         while (iterator.hasNext()) {
             Integer value = iterator.next();
             System.out.println(value);
         }
+        System.out.println("size=" + linkedList.size());
     }
 }

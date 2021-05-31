@@ -25,6 +25,9 @@ public class MyLinkedListIterator<E> implements Iterator<E>{
 
     @Override
     public E next() {
+        if (this.currentNode == null) {
+            throw new NullPointerException();
+        }
         E item = this.currentNode.item;
         if (this.removedNode != null){
             this.previousNode = this.removedNode;
