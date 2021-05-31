@@ -1,5 +1,7 @@
 package lesson4;
 
+import java.util.Iterator;
+
 public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements TwoSideLinkedList<E> {
 
     private Node<E> lastElement;
@@ -66,5 +68,13 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
     @Override
     public E getLast() {
         return getValue(lastElement);
+    }
+
+    @Override
+    public E removeRight() {
+        E value = this.lastElement.item;
+        Iterator<E> iterator = this.iterator();
+        this.lastElement = null;
+        return value;
     }
 }
