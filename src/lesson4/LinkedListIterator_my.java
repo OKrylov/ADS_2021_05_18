@@ -3,7 +3,7 @@ package lesson4;
 import java.util.Iterator;
 import java.util.function.Consumer;
 
-public class MyLinkedListIterator<E> implements Iterator<E>{
+public class LinkedListIterator_my<E> implements Iterator<E>{
     private final SimpleLinkedListImpl<E> linkedList;
     private LinkedList.Node<E> previousNode;
     private LinkedList.Node<E> removedNode;
@@ -11,7 +11,7 @@ public class MyLinkedListIterator<E> implements Iterator<E>{
 
 
 
-    public MyLinkedListIterator(SimpleLinkedListImpl<E> linkedList) {
+    public LinkedListIterator_my(SimpleLinkedListImpl<E> linkedList) {
         this.linkedList = linkedList;
         this.currentNode = linkedList.firstElement;
 

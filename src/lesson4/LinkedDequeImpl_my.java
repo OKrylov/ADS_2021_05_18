@@ -1,12 +1,14 @@
 package lesson4;
 
 import lesson3.deque.Deque;
+import lesson4.TwoSideLinkedList;
+import lesson4.TwoSideLinkedListImpl;
 
-public class MyLinkedDequeImpl<E> implements Deque<E> {
-    private final TwoSideLinkedList<E> data;
+public class LinkedDequeImpl_my<E> implements Deque<E> {
+    private final TwoSideLinkedList_my<E> data;
 
-    public MyLinkedDequeImpl(){
-        this.data = new TwoSideLinkedListImpl<>();
+    public LinkedDequeImpl_my(){
+        this.data = new TwoSideLinkedListImpl_my<>();
     }
 
     @Override
@@ -28,32 +30,35 @@ public class MyLinkedDequeImpl<E> implements Deque<E> {
 
     @Override
     public E removeRight() {
-        return this.data.re;
+        return this.data.removeRight();
     }
 
     @Override
     public boolean insert(E value) {
-        return false;
+        this.data.insertFirst(value);
+        return true;
     }
 
     @Override
     public E remove() {
-        return null;
+
+        return this.data.removeFirst();
     }
 
     @Override
     public E peekFront() {
-        return null;
+
+        return this.data.getFirst();
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.data.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.data.isEmpty();
     }
 
     @Override

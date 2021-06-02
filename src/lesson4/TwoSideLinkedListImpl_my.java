@@ -1,12 +1,15 @@
 package lesson4;
 
-public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements TwoSideLinkedList<E> {
+import java.util.Iterator;
 
-    private Node<E> lastElement;
+public class TwoSideLinkedListImpl_my<E> extends SimpleLinkedListImpl_my<E> implements TwoSideLinkedList_my<E> {
+
+    private MyNode<E> lastElement;
+
 
     @Override
     public void insertLast(E value) {
-        Node<E> newNode = new Node<>(value, null);
+        MyNode<E> newNode = new MyNode<>(value, null, lastElement);
         if (isEmpty()) {
             firstElement = newNode;
         } else {
@@ -36,8 +39,8 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
 
     @Override
     public boolean remove(E value) {
-        Node<E> current = firstElement;
-        Node<E> previous = null;
+        MyNode<E> current = firstElement;
+        MyNode<E> previous = null;
         while (current != null) {
             if (current.item.equals(value)) {
                 break;
@@ -49,8 +52,7 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
         if (current == null) {
             return false;
         } else if (current == firstElement) {
-            removeFirst();
-            return true;
+            return removeFirst() != null;
         } else if (current == lastElement) {
             lastElement = previous;
             previous.next = null;
@@ -66,5 +68,30 @@ public class TwoSideLinkedListImpl<E> extends SimpleLinkedListImpl<E> implements
     @Override
     public E getLast() {
         return getValue(lastElement);
+    }
+
+
+
+    private E getValue(MyNode<E> node) {
+        return node != null ? node.item : null;
+    }
+
+    @Override
+    public E removeRight() {
+        if (isEmpty()) {
+            return  null;
+        }
+        if (size == 1){
+            E returned = lastElement.item;
+            firstElement = null;
+            lastElement = null;
+            return returned;
+        }
+        E returned = lastElement.item;
+        lastElement.previous.next = null;
+        lastElement = lastElement.previous;
+        lastElement.previous = null;
+
+        return returned;
     }
 }
