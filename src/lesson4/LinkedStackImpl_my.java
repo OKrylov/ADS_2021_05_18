@@ -2,12 +2,12 @@ package lesson4;
 
 import lesson3.stack.Stack;
 
-public class LinkedStackImpl<E> implements Stack<E> {
+public class LinkedStackImpl_my<E> implements Stack<E> {
 
-    private final LinkedList<E> data;
+    private final LinkedList_my_two_side_node<E> data;
 
-    public LinkedStackImpl() {
-        this.data = new SimpleLinkedListImpl<>();
+    public LinkedStackImpl_my() {
+        this.data = new SimpleLinkedListImpl_my<>();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class LinkedStackImpl<E> implements Stack<E> {
 
     @Override
     public String toString() {
-        return "LinkedStackImpl{" +
+        return "LinkedStackImpl_my{" +
                 "data=" + data +
                 '}';
     }

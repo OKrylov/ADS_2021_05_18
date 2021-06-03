@@ -1,8 +1,6 @@
 package lesson4;
 
 import lesson3.deque.Deque;
-import lesson4.TwoSideLinkedList;
-import lesson4.TwoSideLinkedListImpl;
 
 public class LinkedDequeImpl_my<E> implements Deque<E> {
     private final TwoSideLinkedList_my<E> data;

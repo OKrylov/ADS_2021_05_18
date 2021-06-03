@@ -2,11 +2,8 @@ package lesson3;
 
 import lesson3.queue.PriorityQueue;
 import lesson3.queue.Queue;
-import lesson3.queue.QueueImpl;
 import lesson3.stack.Stack;
 import lesson3.stack.StackImpl;
-import lesson4.LinkedQueueImpl;
-import lesson4.LinkedStackImpl;
 
 public class Test3 {
 

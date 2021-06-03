@@ -2,7 +2,7 @@ package lesson4;
 
 import java.util.Iterator;
 
-public class SimpleLinkedListImpl_my<E> implements LinkedList_my<E> {
+public class SimpleLinkedListImpl_my<E> implements LinkedList_my_two_side_node<E> {
     protected int size;
     protected MyNode<E> firstElement;
 
@@ -21,7 +21,9 @@ public class SimpleLinkedListImpl_my<E> implements LinkedList_my<E> {
         MyNode<E> removedNode = firstElement;
         firstElement = removedNode.next;
         removedNode.next = null;
-        firstElement.previous = null;
+        if (size != 1) {
+            firstElement.previous = null;
+        }
 
         size--;
         return removedNode.item;
@@ -55,31 +57,50 @@ public class SimpleLinkedListImpl_my<E> implements LinkedList_my<E> {
 
     @Override
     public boolean contains(E value) {
+
+        MyNode<E> current = firstElement;
+        while (current != null) {
+            if (current.item.equals(value)) {
+                return true;
+            }
+            current = current.next;
+        }
+
         return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.size == 0;
     }
 
     @Override
     public void display() {
-
+        System.out.println("----------");
+        for (E item: this) {
+            System.out.print(item + ", ");
+        }
+        System.out.println();
+        System.out.println("----------");
     }
 
     @Override
     public E getFirst() {
-        return null;
+        return getValue(firstElement);
     }
+
+    protected E getValue(MyNode<E> node) {
+        return node != null ? node.item : null;
+    }
+
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new LinkedListIterator_my<>(this);
     }
 }

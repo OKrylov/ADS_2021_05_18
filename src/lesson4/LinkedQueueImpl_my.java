@@ -2,12 +2,12 @@ package lesson4;
 
 import lesson3.queue.Queue;
 
-public class LinkedQueueImpl<E> implements Queue<E> {
+public class LinkedQueueImpl_my<E> implements Queue<E> {
 
-    private final TwoSideLinkedList<E> data;
+    private final TwoSideLinkedList_my<E> data;
 
-    public LinkedQueueImpl() {
-        this.data = new TwoSideLinkedListImpl<>();
+    public LinkedQueueImpl_my() {
+        this.data = new TwoSideLinkedListImpl_my<>();
     }
 
     @Override

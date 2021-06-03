@@ -72,7 +72,7 @@ public class TwoSideLinkedListImpl_my<E> extends SimpleLinkedListImpl_my<E> impl
 
 
 
-    private E getValue(MyNode<E> node) {
+    protected E getValue(MyNode<E> node) {
         return node != null ? node.item : null;
     }
 
@@ -85,13 +85,15 @@ public class TwoSideLinkedListImpl_my<E> extends SimpleLinkedListImpl_my<E> impl
             E returned = lastElement.item;
             firstElement = null;
             lastElement = null;
+            size--;
             return returned;
         }
         E returned = lastElement.item;
         lastElement.previous.next = null;
-        lastElement = lastElement.previous;
+        MyNode<E> adressLastElement = lastElement.previous;
         lastElement.previous = null;
-
+        lastElement = adressLastElement;
+        size--;
         return returned;
     }
 }

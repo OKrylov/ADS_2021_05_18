@@ -4,14 +4,14 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 public class LinkedListIterator_my<E> implements Iterator<E>{
-    private final SimpleLinkedListImpl<E> linkedList;
-    private LinkedList.Node<E> previousNode;
-    private LinkedList.Node<E> removedNode;
-    private LinkedList.Node<E> currentNode;
+    private final SimpleLinkedListImpl_my<E> linkedList;
+    private LinkedList_my_two_side_node.MyNode<E> previousNode;
+    private LinkedList_my_two_side_node.MyNode<E> removedNode;
+    private LinkedList_my_two_side_node.MyNode<E> currentNode;
 
 
 
-    public LinkedListIterator_my(SimpleLinkedListImpl<E> linkedList) {
+    public LinkedListIterator_my(SimpleLinkedListImpl_my<E> linkedList) {
         this.linkedList = linkedList;
         this.currentNode = linkedList.firstElement;
 

@@ -1,7 +1,6 @@
 package lesson4;
 
-public interface LinkedList<E> extends Iterable<E> {
-
+public interface LinkedList_my_two_side_node<E> extends Iterable<E> {
     void insertFirst(E value);
 
     E removeFirst();
@@ -18,13 +17,15 @@ public interface LinkedList<E> extends Iterable<E> {
 
     E getFirst();
 
-    class Node<E> {
+    class MyNode<E> {
         E item;
-        Node<E> next;
+        MyNode<E> next;
+        MyNode<E> previous;
 
-        public Node(E item, Node<E> next) {
+        public MyNode(E item, MyNode<E> next, MyNode<E> previous) {
             this.item = item;
             this.next = next;
+            this.previous = previous;
         }
     }
 
