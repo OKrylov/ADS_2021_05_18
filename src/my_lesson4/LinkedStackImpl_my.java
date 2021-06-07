@@ -1,4 +1,4 @@
-package lesson4;
+package my_lesson4;
 
 import lesson3.stack.Stack;
 

@@ -1,4 +1,4 @@
-package lesson4;
+package my_lesson4;
 
 import java.util.Iterator;
 import java.util.function.Consumer;

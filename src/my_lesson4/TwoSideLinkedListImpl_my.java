@@ -1,6 +1,4 @@
-package lesson4;
-
-import java.util.Iterator;
+package my_lesson4;
 
 public class TwoSideLinkedListImpl_my<E> extends SimpleLinkedListImpl_my<E> implements TwoSideLinkedList_my<E> {
 

@@ -1,4 +1,4 @@
-package lesson4;
+package my_lesson4;
 
 public interface LinkedList_my_two_side_node<E> extends Iterable<E> {
     void insertFirst(E value);
