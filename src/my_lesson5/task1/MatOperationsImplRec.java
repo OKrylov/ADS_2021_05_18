@@ -1,4 +1,4 @@
-package my_lesson5;
+package my_lesson5.task1;
 
 public class MatOperationsImplRec implements MatOperations {
 
@@ -10,8 +10,6 @@ public class MatOperationsImplRec implements MatOperations {
         return num * ErendIntoDegree(num, --degree);
     }
 
-    public static void main(String[] args) {
-        System.out.println(new MatOperationsImplRec().ErendIntoDegree(2, 8));
-    }
+
 
 }

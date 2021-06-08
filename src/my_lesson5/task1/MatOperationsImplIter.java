@@ -1,4 +1,4 @@
-package my_lesson5;
+package my_lesson5.task1;
 
 public class MatOperationsImplIter implements MatOperations {
 
