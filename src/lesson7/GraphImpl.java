@@ -141,4 +141,64 @@ public class GraphImpl implements Graph {
 
         resetVertexState();
     }
+
+    public ArrayList<Vertex> getShortestPath(String startLabel, String finishLabel){
+        ArrayList<Vertex> shortestPathArray = new ArrayList<>();
+        int startIndex = indexOf(startLabel);
+        int finishIndex = indexOf(finishLabel);
+        if (startIndex == -1) {
+            throw new IllegalArgumentException("Invalid start label: " + startLabel);
+        }
+        if (finishIndex == -1) {
+            throw new IllegalArgumentException("Invalid finish label: " + finishLabel);
+        }
+        shortestPathArray.add(vertexList.get(finishIndex));
+        return getShortestPath(vertexList.get(startIndex), shortestPathArray);
+    }
+
+    private ArrayList<Vertex> getShortestPath(Vertex startVertex, ArrayList<Vertex> shortestPathArray) {
+        Vertex finishVertex = shortestPathArray.get(shortestPathArray.size()-1);
+        if (startVertex == finishVertex || finishVertex == null) {
+            return shortestPathArray;
+        }
+        Vertex nextPathVertex = null;
+        Queue<Vertex> queue = new LinkedList<>();
+        visitVertex(queue, startVertex);
+        while (!queue.isEmpty()) {
+            Vertex currentVertex = queue.peek();
+            Vertex nextVertex = getNearUnvisitedVertex(currentVertex);
+            if (finishVertex == nextVertex) {
+                nextPathVertex = currentVertex;
+                break;
+            }
+            if (nextVertex != null) {
+                visitVertex(queue, nextVertex);
+            } else {
+                queue.remove();
+            }
+        }
+        resetVertexState();
+        shortestPathArray.add(nextPathVertex);
+        return getShortestPath(startVertex, shortestPathArray);
+    }
+
+    public void printShortestPath(String startLabel, String finishLabel){
+        ArrayList<Vertex> shortestPath = getShortestPath(startLabel, finishLabel);
+        System.out.print("Shortest Path for " + startLabel + " -> " +  finishLabel + " : ");
+        if (shortestPath.size() == 1) {
+            System.out.println(shortestPath.get(0).toString());
+        } else if (shortestPath.get(1) == null){
+            System.out.println("vertexes do not have connections");
+        } else {
+            for (int i = shortestPath.size() - 1; i >= 0 ; i--) {
+
+                if (i == 0) {
+                    System.out.println(shortestPath.get(i).toString());
+                } else {
+                    System.out.print(shortestPath.get(i).toString() + " => ");
+                }
+            }
+        }
+
+    }
 }
