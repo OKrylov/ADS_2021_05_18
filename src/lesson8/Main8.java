@@ -3,7 +3,7 @@ package lesson8;
 public class Main8 {
 
     public static void main(String[] args) {
-//        HashTable<Product, Integer> hashTable = new HashTableImpl<>(5);//5 * 2 = 10
+//        MyHashTable<Product, Integer> hashTable = new HashTableImpl<>(5);//5 * 2 = 10
         HashTable<Product, Integer> hashTable = new DoubleHashTableImpl<>(5);//5 * 2 = 10
 
         hashTable.put(new Product(1, "Orange"), 150);
